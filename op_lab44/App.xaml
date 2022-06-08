@@ -1,0 +1,63 @@
+﻿<Application x:Class="op_lab44.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:op_lab44"
+             xmlns:viewModel="clr-namespace:op_lab44.ViewModel.ViewModel"
+             xmlns:view ="clr-namespace:op_lab44.ViewModel.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/SearchBarTheme.xaml"/>
+                <ResourceDictionary Source="Themes/DefaultButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/TopMenuButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeVM}">
+                <view:HomeView/>
+            </DataTemplate> 
+
+            <DataTemplate DataType="{x:Type viewModel:AppendVM}">
+                <view:AppendView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:EditorsVM}">
+                <view:EditorsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PrinterVM}">
+                <view:PrinterView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ProducerVM}">
+                <view:ProducerView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:DepertmentVM}">
+                <view:DepartmentView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:ProductVM}">
+                <view:ProductView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ManufactureVM}">
+                <view:ManufactureView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ConsignmentVM}">
+                <view:ConsignmentView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PersonalTaskVM}">
+                <view:PersonalTaskView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ReportVM}">
+                <view:ReportView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

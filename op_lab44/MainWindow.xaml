@@ -1,0 +1,174 @@
+﻿<Window x:Class="op_lab44.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:op_lab44"
+        xmlns:viewModel="clr-namespace:op_lab44.ViewModel.ViewModel"
+        mc:Ignorable="d"
+        Icon="Media/Ukrposhta-ua-icon.png"
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Window.DataContext>
+        <viewModel:MainVM/>
+    </Window.DataContext>
+    
+    <Border CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>   
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#14213d" CornerRadius="10,0,0,0">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Height="50">
+                        <Image Source="Media/Ukrposhta-ua-icon.png"/>
+                    </Label>
+                    <TextBlock Text="UkrPost"
+                               Foreground="#ffffff"
+                               FontSize="30"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+                
+            </Border>
+
+            <Border Grid.Row="1" Background="#fca311" CornerRadius="0,0,0,10">
+                <StackPanel Grid.Row="1">
+                    <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"
+                             />
+
+                    <RadioButton Content="Magazines"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AppendViewCommand}"/>
+
+                    <RadioButton Content="Editors"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding EditorsViewCommand}"/>
+
+                    <RadioButton Content="Printers"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding PrintersViewCommand}"/>
+                    <RadioButton Content="Producers"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ProducersViewCommand}"/>
+                    <RadioButton Content="Departments"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DepartmentsViewCommand}"/>
+                    <RadioButton Content="Products"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ProductsViewCommand}"/>
+                    <RadioButton Content="Manufacture"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ManufactureViewCommand}"/>
+                    <RadioButton Content="Consignment"
+                             Height="50"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ConsignmentViewCommand}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="#14213d" Grid.Column="1" CornerRadius="0,10,0,0">
+                <Grid>
+
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <RadioButton Content="Features"
+                             Width="100"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource TopMenuButtonTheme}"
+                             Command="{Binding PersonalTaskViewCommand}"
+                             />
+                        <RadioButton Content="Report"
+                             Width="100"
+                             Foreground="#ffffff"
+                             FontSize="20"
+                             Style="{StaticResource TopMenuButtonTheme}"
+                             Command="{Binding ReportViewCommand}"
+                             />
+                    </StackPanel>
+                    
+                    <Button x:Name="exitButton" 
+                            Click="exitButton_Click"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,20,0" 
+                            Width="100" 
+                            Height="50"
+                            BorderThickness="0"
+                            Cursor="Hand">
+                        
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="#fca311" CornerRadius="10" x:Name="exitbckgrnd">
+                                                <Grid>
+                                                    <TextBlock Text="Exit" FontSize="20" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                </Grid>
+                                            </Border>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="exitbckgrnd" Property="Background" Value="#fdb422"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="0,0,10,0" Background="#ffffff"/>
+            <ContentControl Grid.Row="1" 
+                            Grid.Column="1" 
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
+</Window>

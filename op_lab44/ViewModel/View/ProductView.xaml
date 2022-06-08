@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="op_lab44.ViewModel.View.ProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:op_lab44.ViewModel.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="ListBoxProducts" Margin="10"
+                 SelectionChanged="ListBoxProducts_SelectionChanged"
+                 BorderThickness="0" Background="#e5e5e5"/>
+
+        <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+            <TextBlock Text="Edit" FontSize="20" 
+                       Foreground="#000000"/>
+            <TextBox x:Name="magazineBox" Width="100" Margin="0,10,0,0" IsReadOnly="True"/>
+            <ComboBox x:Name="producerBox" Width="100" Margin="0,10,0,0"/>
+            <ComboBox x:Name="editorBox" Width="100" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <Button x:Name="delButton" Click="delButton_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                Width="100" Height="50" Grid.Column="2"
+                BorderThickness="0" Cursor="Hand">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="#14213d" CornerRadius="10" x:Name="exitbckgrnd">
+                                    <Grid>
+                                        <TextBlock Text="Delete" FontSize="20" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="exitbckgrnd" Property="Background" Value="#da051d"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="saveButton" Click="saveButton_Click"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                Width="100" Height="50" Grid.Column="2"
+                BorderThickness="0" Cursor="Hand">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="#14213d" CornerRadius="10" x:Name="exitbckgrnd">
+                                    <Grid>
+                                        <TextBlock Text="Save" FontSize="20" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="exitbckgrnd" Property="Background" Value="#05da1d"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <StackPanel Grid.Column="3" HorizontalAlignment="Center">
+            <TextBlock Text="Add new" FontSize="20" 
+                       Foreground="#000000"/>
+            <ComboBox x:Name="magazineNewBox" Width="100" Margin="0,10,0,0" SelectionChanged="magazineNewBox_SelectionChanged"/>
+            <ComboBox x:Name="producerNewBox" Width="100" Margin="0,10,0,0" IsEnabled="False"/>
+            <ComboBox x:Name="editorNewBox" Width="100" Margin="0,10,0,0" IsEnabled="False"/>
+        </StackPanel>
+
+        <Button x:Name="addButton" Click="addButton_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                Width="100" Height="50" Grid.Column="3"
+                BorderThickness="0" Cursor="Hand">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="#14213d" CornerRadius="10" x:Name="exitbckgrnd">
+                                    <Grid>
+                                        <TextBlock Text="Add" FontSize="20" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="exitbckgrnd" Property="Background" Value="#05da1d"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <StackPanel Grid.Column="1" Margin="0,41,0,0">
+            <TextBlock Text="Magazine"/>
+            <TextBlock Text="Producer" Margin="0,16,0,0"/>
+            <TextBlock Text="Editor" Margin="0,16,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
